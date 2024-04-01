@@ -3,6 +3,7 @@ import metricsicon from "../assets/metrics.png";
 import logsicon from "../assets/list.png";
 import tickedicon from "../assets/tick.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navrbar = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Navrbar = () => {
   return (
     <header className="bg-white">
       <div className="mx-auto flex h-20 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 p-2">
-        <a className="block text-teal-600" href="/">
+        <Link className="block text-teal-600" to="/">
           <svg
             width="191"
             height="34"
@@ -100,7 +101,7 @@ const Navrbar = () => {
               </clipPath>
             </defs>
           </svg>
-        </a>
+        </Link>
 
         <div className="flex flex-1 items-center justify-end md:justify-between">
           <nav
@@ -108,32 +109,32 @@ const Navrbar = () => {
             className="hidden md:block"
           >
             <ul className="flex items-center gap-6 text-sm">
-              <li className=" font-bold flex hover:border-b-4 border-blue-800 ">
+              <li
+                className=" font-bold flex hover:border-b-4 border-blue-800 cursor-pointer "
+                onClick={() => navigate(`/metrics`)}
+              >
                 <img
                   src={metricsicon}
                   className="object-contain h-8 w-5 mt-1"
                   alt="metrics"
                 />
-                <a
-                  className="text-gray-800 transition hover:text-black  p-2 "
-                  href="/metrics"
-                >
+                <h1 className="text-gray-800 transition hover:text-black p-2">
                   Metrics
-                </a>
+                </h1>
               </li>
 
-              <li className=" font-bold flex hover:border-b-4 border-blue-800">
+              <li
+                className=" font-bold flex hover:border-b-4 border-blue-800 cursor-pointer"
+                onClick={() => navigate(`/logs/${300000}`)}
+              >
                 <img
                   src={logsicon}
                   className="object-contain h-4 w-4 mt-3"
                   alt="logs"
                 />
-                <a
-                  className="text-gray-800 transition hover:text-black p-2 "
-                  href="/logs/300000"
-                >
+                <h1 className="text-gray-800 transition hover:text-black p-2 ">
                   Logs
-                </a>
+                </h1>
               </li>
             </ul>
           </nav>
